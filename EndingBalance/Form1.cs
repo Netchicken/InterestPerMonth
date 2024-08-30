@@ -36,7 +36,7 @@ namespace EndingBalance
                     while (count <= months)
                     {
                         // Add this month's interest to the balance.
-                        balance += (INTEREST_RATE * balance);
+                        balance += (interestRate * balance);
 
                         lbxOutput.Items.Add("Month " + count + " " + balance);
 
