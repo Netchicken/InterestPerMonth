@@ -63,7 +63,7 @@
             // outputDescriptionLabel
             // 
             outputDescriptionLabel.AutoSize = true;
-            outputDescriptionLabel.Location = new Point(45, 138);
+            outputDescriptionLabel.Location = new Point(41, 132);
             outputDescriptionLabel.Name = "outputDescriptionLabel";
             outputDescriptionLabel.Size = new Size(91, 15);
             outputDescriptionLabel.TabIndex = 2;
@@ -86,7 +86,7 @@
             // LblEndingBalance
             // 
             LblEndingBalance.BorderStyle = BorderStyle.FixedSingle;
-            LblEndingBalance.Location = new Point(141, 133);
+            LblEndingBalance.Location = new Point(137, 127);
             LblEndingBalance.Name = "LblEndingBalance";
             LblEndingBalance.Size = new Size(100, 23);
             LblEndingBalance.TabIndex = 5;
@@ -130,6 +130,7 @@
             lbxOutput.Name = "lbxOutput";
             lbxOutput.Size = new Size(239, 139);
             lbxOutput.TabIndex = 9;
+            lbxOutput.SelectedIndexChanged += lbxOutput_SelectedIndexChanged;
             // 
             // txtinterestRate
             // 
@@ -141,7 +142,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 78);
+            label1.Location = new Point(61, 82);
             label1.Name = "label1";
             label1.Size = new Size(72, 15);
             label1.TabIndex = 10;
@@ -152,7 +153,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(382, 389);
+            ClientSize = new Size(282, 361);
             Controls.Add(txtinterestRate);
             Controls.Add(label1);
             Controls.Add(lbxOutput);
