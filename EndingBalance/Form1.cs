@@ -11,56 +11,44 @@ namespace EndingBalance
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
-            // Constant for the monthly interest rate.
-
-
             // Local variables
             Single balance;           // The account balance
             Single interestRate;      // the interest rate
-
             int totalMonths;                // The number of totalMonths
             int count = 1;             // Loop counter, initialized with 1
 
-            // Get the starting balance.
-            if (Single.TryParse(txtStartingBal.Text, out balance))
+            // Get the starting balance, all have to be true with &&.
+            if (Single.TryParse(txtStartingBal.Text, out balance)
+                && int.TryParse(txtMonths.Text, out totalMonths)
+                && Single.TryParse(txtinterestRate.Text, out interestRate))
             {
                 // Get the number of totalMonths.
-                if (int.TryParse(txtMonths.Text, out totalMonths))
+
+                //get the monthy interest rate
+                Single monthlyRate = interestRate / 12;
+
+                // The following loop calculates the ending balance.
+                while (count <= totalMonths)
                 {
-                    if (Single.TryParse(txtinterestRate.Text, out interestRate))
-                    {
-                        //get the monthy interest rate
-                        Single monthlyRate = interestRate / 12;
+                    // Add this month's interest to the balance.
+                    balance *= (1 + monthlyRate);
 
-                        // The following loop calculates the ending balance.
-                        while (count <= totalMonths)
-                        {
-                            // Add this month's interest to the balance.
-                            balance *= (1 + monthlyRate);
+                    lbxOutput.Items.Add("Month " + count + " " + balance);
 
-                            lbxOutput.Items.Add("Month " + count + " " + balance);
-
-                            // Add one to the loop counter.
-                            count++;
-                        }
-                    }
-                    // Display the ending balance.
-                    LblEndingBalance.Text = balance.ToString("c");
+                    // Add one to the loop counter.
+                    count++;
                 }
-                else
-                {
-                    // Invalid number of totalMonths was entered.
-                    MessageBox.Show("Invalid value for totalMonths.");
-                }
+                // Display the ending balance.
+                LblEndingBalance.Text = balance.ToString("c");
             }
             else
             {
                 // Invalid starting balance was entered.
-                MessageBox.Show("Invalid value for starting balance.");
+                MessageBox.Show("Invalid value for TextBox.");
             }
-            chatGPT();
         }
 
+        //chatGPT();
         private void clearButton_Click(object sender, EventArgs e)
         {
             // Clear the TextBoxes and the endingBalanceLabel control.
